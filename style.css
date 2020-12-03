@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+/* Defining colours as reuseable vars */
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aliceblue;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 100%;
+  width: 350px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.progress-container::before {
+  /* content is required for before */
+  content: '';
+  background-color: var(--line-border-empty);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /* centering the line */
+  transform: translateY(-50%);
+  z-index: -1;
+  height: 4px;
+  width: 100%;
+  transition: 0.4s ease;
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: -1;
+  height: 4px;
+  width: 0%;
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: white;
+  color: var(--line-border-empty);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  transition: .04s ease;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: white;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+/* Prevent users from touching the button */
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
+
+/* Socials */
+footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 15px;
+  text-align: center;
+  padding: 0 10px;
+  font-size: 20px;
+  color: navy;
+}
+
+footer a {
+  text-decoration: none; 
+  color: navy;
+}
+
+footer a:hover {
+  color: var(--line-border-fill) !important; 
+}
+
+footer a:visited{
+  color:navy
+}
+
+@media (max-width:320px){
+  .progress-container{
+    width:300px
+  }
+}
